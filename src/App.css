@@ -1,38 +1,41 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav{
+  position:fixed;
+  background-color: var(--dark-spring-green);
+  width: 100%;
+  height:4rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content:space-between;
 }
 
-.App-link {
-  color: #61dafb;
+nav > h1 {
+  margin-left: 4rem;
+  color: var(--lavender-blush);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav > ul{
+  list-style: none;
+  display: flex;
+  margin-right: 4rem;
+  gap:2rem;
+  font-size:1.5rem;
+  color: var(--lavender-blush);
+  font-weight: 300;
+}
+
+
+nav > ul:hover{
+  cursor: pointer;
+}
+
+.AppIntroduction{
+  padding-top: 4rem;
+  width: 100%;
+  height: calc(100vh - 4rem);
+}
+
+.ChatBotMother{
+  padding-top: 4rem;
+  width: 100%;
+  height: calc(100vh - 4rem);
 }

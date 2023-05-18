@@ -1,24 +1,50 @@
-import logo from './logo.svg';
 import './App.css';
+import Chatbot from './chatbot.js';
+import AppIntro from './appIntro.js';
+import { useState } from 'react';
 
 function App() {
+
+  let [chatbot,setchatbot] = useState(false);
+  let [home,sethome] = useState(true);
+
+  function ChangeToChatBot() {
+    if(!chatbot)
+    {
+      setchatbot(true);
+      sethome(false);
+    }
+  }
+
+  function ChangeToHome() {
+    if(!home)
+    {
+      setchatbot(false);
+      sethome(true);
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="AppBody">
+
+      <nav>
+        <h1>H-BOT</h1>
+        <ul>
+          <li onClick={ChangeToHome} >Home</li>
+          <li onClick={ChangeToChatBot} >Chat Bot</li>
+        </ul>
+      </nav>
+
+      {chatbot && (<div className="ChatBotMother">
+        <Chatbot />
+      </div>)}
+
+      {home && (<div className="AppIntroduction">
+        <AppIntro />
+      </div>)}
+      
     </div>
+
   );
 }
 
