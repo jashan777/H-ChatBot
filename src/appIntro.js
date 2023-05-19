@@ -1,7 +1,7 @@
 import './appIntro.css'
 
 
-function AppIntro() {
+function AppIntro(props) {
 
     
 
@@ -15,7 +15,7 @@ function AppIntro() {
                     Hbot is specifically designed for helping out people who need health realted
                     help , go ahead try it out.
                 </p>
-                <p>check it out</p>
+                <p onClick={props.change} id="checklink">check it out</p>
             </header>
             
             <img src="./Driod.png" alt="health driod"/>

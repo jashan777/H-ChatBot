@@ -5,9 +5,11 @@ import { useState } from 'react';
 
 function App() {
 
+  //state variables
   let [chatbot,setchatbot] = useState(false);
   let [home,sethome] = useState(true);
 
+  //functions to change the state variable - START
   function ChangeToChatBot() {
     if(!chatbot)
     {
@@ -23,15 +25,16 @@ function App() {
       sethome(true);
     }
   }
+  //functions to change the state variable - END
 
   return (
     <div className="AppBody">
 
       <nav>
-        <h1>H-BOT</h1>
+        <h1><img src="./icon.png" id="icon"/>H-BOT</h1>
         <ul>
-          <li onClick={ChangeToHome} >Home</li>
-          <li onClick={ChangeToChatBot} >Chat Bot</li>
+          <li onClick={ChangeToHome} id="Home" >Home</li>
+          <li onClick={ChangeToChatBot} id="ChatBot">Chat Bot</li>
         </ul>
       </nav>
 
@@ -40,7 +43,7 @@ function App() {
       </div>)}
 
       {home && (<div className="AppIntroduction">
-        <AppIntro />
+        <AppIntro change={ChangeToChatBot}/>
       </div>)}
       
     </div>

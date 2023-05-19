@@ -3,7 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 4rem);
+    height: stretch;
+    background-color:#121b0d;
   }
   
   .chat-window  {
@@ -15,13 +16,15 @@
     padding: 10px;
     margin-bottom: 10px;
     overflow-y: scroll;
+    background-color: #121b0d;
   }
 
-  .icon{
-    height:20px;
-    width: 20px;
+  .icons{
+
+    width: 40px;
     float:left;
     margin-right: 5px;
+    aspect-ratio: 2/3;
   }
   
   .message {
@@ -44,7 +47,7 @@
   
   .bot {
     align-self: flex-start;
-    background-color:#c6f8d6 ;
+    background-color:#baff9a ;
     color: #112A46;
     border-radius: 10px;
     max-width: 70%;
@@ -96,4 +99,22 @@
     font-family: 'Source Sans Pro';
     white-space:pre-wrap;
     margin:0;
+  }
+
+  @media screen  and (max-width: 700px) {
+
+    .chat-window  {
+      display: flex;
+      flex-direction: column;
+      height:85%;
+      width: 95%;
+      border-radius: 5px;
+      padding: 0px;
+      margin-bottom: 0px;
+      overflow-y: scroll;
+      background-color: #121b0d;
+    }
+  
+
+    
   }

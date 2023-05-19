@@ -13,13 +13,12 @@ class Chatbot extends Component {
   }
 
   componentDidMount() {
-    // Add initial message from bot to messages list
+    // Adding some initial messages to the chat window
     this.setState({
       messages: [...this.state.messages, {
         sender: "bot",
         message: "Welcome to HealthBot! I provide information and answer questions related to various health topics. Whether you have concerns about symptoms, medical conditions, or general wellness, I'm here to assist you. Here are a few things you can ask me:"
       }, {
-        //Replace message with 3 star trek questions
         sender: "bot",
         message: "->  Symptoms: Describe any symptoms you're experiencing, and I can provide information on possible causes and recommendations for next steps."
       }, {
@@ -30,9 +29,12 @@ class Chatbot extends Component {
     });
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = (event) => 
+  {
+
     event.preventDefault();
     const userMessage = event.target.elements.userInput.value
+
     //Set messages state
     this.setState({ messages: [...this.state.messages, { type: 'user', message: userMessage }] });
     event.target.elements.userInput.value = ''
@@ -40,22 +42,27 @@ class Chatbot extends Component {
   }
 
 
+  //FUNCTIONALITY TO SCROOL TO THE BOTTOM - START
   scrollToBottom = () => {
+
     // Scroll to the bottom of the chat window
-    if (this.chatWindowRef && this.chatWindowRef.current) {
+    if (this.chatWindowRef && this.chatWindowRef.current) 
+    {
       this.chatWindowRef.current.scrollTop = this.chatWindowRef.current.scrollHeight;
     }
+
   }
 
+  //on component update scroll to the bottom 
   componentDidUpdate() {
     this.scrollToBottom();
   }
-
+  //FUNCTIONALITY TO SCROOL TO THE BOTTOM - END
 
 
   sendMessage = async (userMessage) => {
     const openaiEndpoint = 'https://api.openai.com/v1/chat/completions';
-    const openaiApiKey = "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";
+    const openaiApiKey = process.env.REACT_APP_OPENAI_API_KEY;
     const model = 'gpt-3.5-turbo';
 
     const headers = {
@@ -95,7 +102,7 @@ class Chatbot extends Component {
           {this.state.messages.map((message, index) => (
             <div key={index} className={message.sender === "bot" ? "bot" : "user"}>
                
-               {message.sender === "bot" && (<img src="./icon.png" className="icon"/>) }
+               {message.sender === "bot" && (<img src="./icon2.png" className="icons"/>) }
                
                <pre>{message.message}</pre>
               

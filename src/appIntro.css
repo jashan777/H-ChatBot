@@ -8,10 +8,6 @@
     justify-content:space-evenly;
 }
 
-.AppIntroBody > header{
-    margin-bottom: 6rem;
-}
-
 .AppIntroBody > header > h1 {
     font-weight:700;
 }
@@ -21,11 +17,31 @@
     aspect-ratio: 2/3;
 }
 
+#checklink{
+    margin-top: 2rem;
+    font-weight: 700;
+}
+
+#checklink:hover{
+    cursor:pointer;
+}
+
 @media screen  and (max-width: 700px) {
 
     .AppIntroBody{
-        margin-top: 6rem;
+        margin-top: 0rem;
         flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .AppIntroBody > img {
+        height: 40%;
+        aspect-ratio: 2/3;
+    }
+
+    .AppIntroBody > header{
+        text-align: center;
     }
 
 }
